@@ -1,6 +1,11 @@
+一.常用命令
 mkdir 目录名                                     //创建一个目录
 pwd = print working directory                    //打印当前目录
 .git的目录，这个目录是跟踪管理版本库的。
 git config --list                                //git所有的配置信息
 git config --global user.name/user.email "  "    //配置用户名和用户邮箱
 
+二、问题汇总
+1、如何修改git bash软件的默认目录？
+  (1)右击git bash软件，选择属性将起始位置改成要修改的目录路径。
+  (2)右击我的电脑，选择属性->高级属性设置->环境变量，在用户变量中新建HOME变量，内容为要修改的目录路径。
