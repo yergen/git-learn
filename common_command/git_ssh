@@ -1,0 +1,25 @@
+让git通过ssh协议授权
+1.	打开ssh目录，一般为隐藏目录 ~/.ssh。
+2.	生成密钥文件：
+ssh-keygen –t rsa –C “Your  Email” 就会生成默认名字id_rsa和id_rsa.pub.
+ssh-keygen  -t rsa –C “Your Email” –f ~/.ssh/github 就会生成github和github.pub.(github可以改成自己想要的文件目录)
+3.	打开公钥文件(id_rsa.pub)，并把内容复制到setting –>SSH and GPG keys列表中
+vim ~/.ssh/id_rsa.pub
+4.	测试：
+ssh –T git@github.com
+如果成功则提示：
+Hi xxxxx! You've successfully authenticated, but GitHub does not provide shell access.
+这样就可以只用ssh协议的URL了，默认是https协议。
+在你的某个repository -> clone and download -> clone with ssh
+练习：从github网站通过ssh协议克隆一个本地库，修改并提交到远程仓库中。
+git clone git@github.com:yergen(用户名)/README.git(仓库名)
+vim README/README.md 修改并保存
+git add README/README.md 把文件修改放到暂存区（类似与淘宝的购物车）
+git status 查看提交状态
+git commit –m “your commit message”更新到本地仓库
+git status 再次查看提交状态，确认以提交。
+git remote add origin git@github.com:yergen(用户名)/README.git(仓库名)
+将本地仓库与远程仓库关联，远程库名为origin。
+git remote –v来查看关联的远程仓库。
+git push –u origin master 将本地master分支更新到远程origin主线上。
+PS：-u 参数作为第一次提交使用。
